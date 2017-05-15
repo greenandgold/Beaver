@@ -1,0 +1,43 @@
+---
+title: "Week 3 Assignment"
+author: "Katherine"
+date: "May 15, 2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Beaver Temperature
+A time series plot of beaver temperature. The 114 temperature recordings are taken every 10 minutes. 
+```{r, message = FALSE}
+library(plotly)
+beavertemp <- ts(beaver1$temp)
+f <- list(family = "Courier New, monospace", size = 18, color = "grey")
+x <- list(title = "time (tens of minutes)", titlefont = f)
+y <- list(title = "temperature", titlefont = f)
+p <- plot_ly(x = time(beavertemp), y = beavertemp) %>%
+layout(xaxis = x, yaxis = y)
+p
+```
+
+
+
+
+## The R Code
+```{r, echo = TRUE, eval = FALSE, message = FALSE}
+library(plotly)
+library(datasets)
+beavertemp <- ts(beaver1$temp)
+f <- list(family = "Courier New, monospace", size = 18, color = "grey")
+x <- list(title = "time (tens of minutes)", titlefont = f)
+y <- list(title = "temperature", titlefont = f)
+p <- plot_ly(x = time(beavertemp), y = beavertemp) %>%
+layout(xaxis = x, yaxis = y)
+p
+```
+
+
+
